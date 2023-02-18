@@ -1,8 +1,8 @@
-package org.practice.testLearn.productOrderService.product;
+package org.practice.testLearn.domain;
 
 import org.springframework.util.Assert;
 
-class Product {
+public class Product {
 
     private Long id;
     private final String name;

@@ -1,9 +1,10 @@
-package org.practice.testLearn.productOrderService.product;
+package org.practice.testLearn.infrastructure.repository;
 
 import java.util.HashMap;
 import java.util.Map;
+import org.practice.testLearn.domain.Product;
 
-class ProductRepository {
+public class ProductRepository {
 
     private Map<Long, Product> persistence = new HashMap<>();
     private Long sequence = 0L;

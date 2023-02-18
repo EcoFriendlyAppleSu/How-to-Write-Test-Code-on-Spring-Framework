@@ -15,4 +15,10 @@ public class ProductAdapter implements ProductPort {
     public void save(Product product) {
         repository.save(product);
     }
+
+    @Override
+    public Product getProduct(Long productId) {
+        return repository.findById(productId).orElseThrow(() -> new IllegalArgumentException());
+    }
+
 }

@@ -1,22 +1,18 @@
 package org.practice.testLearn.infrastructure.repository;
 
+import lombok.RequiredArgsConstructor;
 import org.practice.testLearn.domain.Product;
 import org.practice.testLearn.domain.ProductPort;
-import org.practice.testLearn.infrastructure.repository.ProductRepository;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 
 @Component
+@RequiredArgsConstructor
 public class ProductAdapter implements ProductPort {
 
-    private final ProductRepository productRepository;
-
-    public ProductAdapter(ProductRepository productRepository) {
-        this.productRepository = productRepository;
-    }
+    private final ProductJpaRepository repository;
 
     @Override
     public void save(Product product) {
-        productRepository.save(product);
+        repository.save(product);
     }
 }

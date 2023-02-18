@@ -11,3 +11,8 @@
 3. 테스트 코드를 작성해 검증을 진행합니다.
 
 🍏 Rest-assured Tool은 API를 재활용할 수 있습니다.
+
+❗ Rest-assured를 사용할 때 주의할 점이 있습니다.
+- Rest-assured를 사용할 경우 WAS를 띄웠을 때(SpringBoot On) API가 Caching이 됩니다.
+- 만약 다른 테스트에서 동일한 API요청이 여러번 호출된다면 Test의 일관성을 보장할 수 없습니다. 즉, Test가 꼬일 수 있습니다.
+- 따라서, **Test 격리**가 필요합니다. API의 초기화가 필요합니다.

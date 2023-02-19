@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import io.restassured.RestAssured;
 import io.restassured.response.ExtractableResponse;
 import io.restassured.response.Response;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.practice.testLearn.presentation.request.UpdateProductRequest;
@@ -30,7 +31,7 @@ class ProductApiTest extends ApiTest {
         ProductSteps.addProduct(product);
         var productId = 1L;
 
-        ExtractableResponse<Response> response = productSearchingRequest(productId);
+        var response = productSearchingRequest(productId);
         assertThat(response.statusCode()).isEqualTo(HttpStatus.OK.value());
         assertThat(response.jsonPath().getString("name")).isEqualTo("ItemName");
     }
@@ -38,27 +39,20 @@ class ProductApiTest extends ApiTest {
     @DisplayName("상품 수정 테스트")
     @Test
     public void productUpdateTest() throws Exception {
-        /*var product = ProductSteps.creatItemRequest();
+        var product = ProductSteps.creatItemRequest();
         ProductSteps.addProduct(product);
         var productId = 1L;
+        var updateProduct = ProductSteps.updateProductRequest();
 
         var response = RestAssured.given().log().all()
             .contentType(MediaType.APPLICATION_JSON_VALUE)
-            .body(UpdateProductRequest.class)
+            .body(updateProduct)
             .when()
-            .post("/products/update")
+            .post("/products/update/{productId}", productId)
             .then()
             .log().all().extract();
-*/
-        /*
-        * RestAssured.given().log().all()
-            .contentType(MediaType.APPLICATION_JSON_VALUE)
-            .body(request)
-            .when()
-            .post("/products")
-            .then()
-            .log().all().extract();
-        * */
+
+        assertThat(response.jsonPath().getString("name")).isEqualTo("updateItem");
     }
 
     private ExtractableResponse<Response> productSearchingRequest(long productId) {

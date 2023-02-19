@@ -5,6 +5,7 @@ import io.restassured.response.ExtractableResponse;
 import io.restassured.response.Response;
 import org.practice.testLearn.domain.DiscountPolicy;
 import org.practice.testLearn.presentation.request.AddProductRequest;
+import org.practice.testLearn.presentation.request.UpdateProductRequest;
 import org.springframework.http.MediaType;
 
 public class ProductSteps {
@@ -27,5 +28,13 @@ public class ProductSteps {
         int money = 10000;
         DiscountPolicy discountPolicy = DiscountPolicy.NONE;
         return new AddProductRequest(name, money, discountPolicy);
+    }
+
+    // 상품 수정 요청 생성
+    public static UpdateProductRequest updateProductRequest() {
+        String name = "updateItem";
+        int money = 15000;
+        DiscountPolicy discountPolicy = DiscountPolicy.NONE;
+        return new UpdateProductRequest(name, money, discountPolicy);
     }
 }

@@ -4,9 +4,9 @@ import lombok.RequiredArgsConstructor;
 import org.practice.testLearn.domain.Order;
 import org.practice.testLearn.domain.OrderPort;
 import org.practice.testLearn.domain.Product;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Component;
 
-@Repository
+@Component
 @RequiredArgsConstructor
 public class OrderAdapter implements OrderPort {
 

@@ -16,6 +16,6 @@ public class OrderProductController {
     private final OrderService service;
     @GetMapping
     public void order(@RequestBody CreateOrderRequest request) {
-        service.createOrder(request.toCommand());
+        service.createOrder(request);
     }
 }

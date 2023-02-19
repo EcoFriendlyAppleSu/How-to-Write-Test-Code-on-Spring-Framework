@@ -1,25 +1,22 @@
 package org.practice.testLearn.application;
 
-import org.practice.testLearn.application.command.OrderProductCommand;
+import lombok.RequiredArgsConstructor;
 import org.practice.testLearn.domain.Order;
 import org.practice.testLearn.domain.OrderPort;
-import org.practice.testLearn.domain.ProductPort;
+import org.practice.testLearn.presentation.request.CreateOrderRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@RequiredArgsConstructor
 public class OrderService {
 
     private final OrderPort orderPort;
 
-    public OrderService(OrderPort orderPort) {
-        this.orderPort = orderPort;
-    }
-
-    public void createOrder(OrderProductCommand command) {
-        var product = orderPort.getProductById(command.productId());
-        Order order = new Order(product, command.quantity());
-
+    @Transactional
+    public void createOrder(CreateOrderRequest request) {
+        var product = orderPort.getProductById(request.productId());
+        var order = new Order(product, request.quantity());
         orderPort.save(order);
     }
-
 }

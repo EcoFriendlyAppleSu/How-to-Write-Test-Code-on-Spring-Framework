@@ -5,24 +5,38 @@ import static org.assertj.core.api.Assertions.assertThat;
 import io.restassured.RestAssured;
 import io.restassured.response.ExtractableResponse;
 import io.restassured.response.Response;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.practice.testLearn.domain.DiscountPolicy;
-import org.practice.testLearn.presentation.request.AddProductRequest;
 import org.practice.testLearn.productOrderService.ApiTest;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 
-class ProductApiTest extends ProductSteps {
+class ProductApiTest extends ApiTest {
 
     @DisplayName("상품 등록 서비스 테스트")
     @Test
     public void addItemTest() throws Exception {
-        var request = creatItemRequest();
-        var response = itemRequest(request);
-
+        var request = ProductSteps.creatItemRequest();
+        var response = ProductSteps.addProduct(request);
         assertThat(response.statusCode()).isEqualTo(HttpStatus.CREATED.value());
+    }
+
+    @DisplayName("상품 조회 테스트")
+    @Test
+    public void itemQueryTest() throws Exception {
+
+        var addProduct = ProductSteps.creatItemRequest();
+        ProductSteps.addProduct(addProduct);
+        var productId = 1L;
+
+        var response = RestAssured.given().log().all()
+            .when()
+            .get("/products/{productId}", productId)
+            .then().log().all()
+            .extract();
+
+        assertThat(response.statusCode()).isEqualTo(HttpStatus.OK.value());
+        assertThat(response.jsonPath().getString("name")).isEqualTo("ItemName");
     }
 
 }

@@ -15,7 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-public class ProductServiceTest {
+public class ProductServiceTest{
 
     @Autowired
     private ProductController controller;
@@ -29,7 +29,7 @@ public class ProductServiceTest {
     @Test
     public void productFindBySomethingTest() throws Exception {
         // 상품 등록
-        var request = creatItemRequest();
+        var request = ProductSteps.creatItemRequest();
         controller.addProductController(request);
         Long productId = 1L;
 
@@ -39,12 +39,4 @@ public class ProductServiceTest {
         // 상품의 응답을 검증
         assertThat(response).isNotNull();
     }
-
-    private AddProductRequest creatItemRequest() {
-        String name = "ItemName";
-        int money = 10000;
-        DiscountPolicy discountPolicy = DiscountPolicy.NONE;
-        return new AddProductRequest(name, money, discountPolicy);
-    }
-
 }

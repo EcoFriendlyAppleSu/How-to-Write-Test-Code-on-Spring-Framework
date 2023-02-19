@@ -2,15 +2,10 @@ package org.practice.testLearn.productOrderService.product;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.practice.testLearn.application.ProductQueryService;
-import org.practice.testLearn.application.response.GetProductResponse;
-import org.practice.testLearn.domain.DiscountPolicy;
-import org.practice.testLearn.domain.ProductPort;
+import org.practice.testLearn.application.result.GetProductResult;
 import org.practice.testLearn.presentation.ProductController;
-import org.practice.testLearn.presentation.request.AddProductRequest;
-import org.practice.testLearn.productOrderService.ApiTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -34,7 +29,7 @@ public class ProductServiceTest{
         Long productId = 1L;
 
         // 상품을 조회
-        GetProductResponse response = service.getProduct(productId);
+        GetProductResult response = service.getProduct(productId);
 
         // 상품의 응답을 검증
         assertThat(response).isNotNull();

@@ -17,7 +17,7 @@ public class ProductService {
 
     @Transactional
     public void addProduct(AddProductRequest request) {
-        Product product = new Product(request.name(), request.price(), request.discountPolicy());
+        Product product = Product.register(request.name(), request.price(), request.discountPolicy());
         productPort.save(product);
     }
 }

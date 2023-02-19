@@ -2,7 +2,7 @@ package org.practice.testLearn.presentation;
 
 import lombok.RequiredArgsConstructor;
 import org.practice.testLearn.application.ProductQueryService;
-import org.practice.testLearn.application.response.GetProductResponse;
+import org.practice.testLearn.application.result.GetProductResult;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,7 +17,7 @@ public class ProductQueryController {
     private final ProductQueryService service;
 
     @GetMapping("/{productId}")
-    public ResponseEntity<GetProductResponse> getProductById(@PathVariable Long productId) {
+    public ResponseEntity<GetProductResult> getProductById(@PathVariable Long productId) {
         var product = service.getProduct(productId);
         return ResponseEntity.ok(product);
     }

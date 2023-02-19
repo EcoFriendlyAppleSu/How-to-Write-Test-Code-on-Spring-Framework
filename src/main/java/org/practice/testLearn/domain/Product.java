@@ -51,6 +51,10 @@ public class Product {
         return id;
     }
 
+    /*
+    * JPA는 EntityManager가 EntityContext Container를 관리합니다.
+    * 이 때, 관리 대상은 인스턴스된 각자의 객체입니다.
+    * */
     public void update(String name, int price, DiscountPolicy discountPolicy) {
         this.name = name;
         this.price = price;

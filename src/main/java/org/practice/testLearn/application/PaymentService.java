@@ -17,8 +17,8 @@ public class PaymentService {
     public void payment(PaymentCommand command) {
         var order = paymentPort.getOrder(command.orderId());
         var payment = new Payment(order, command.cardNumber());
-
-        paymentPort.pay(payment);
+        paymentPort.pay(payment.getPrice(), payment.getCardNumber());
+        paymentPort.save(payment);
     }
 
 }

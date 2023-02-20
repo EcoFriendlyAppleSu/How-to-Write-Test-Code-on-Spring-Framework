@@ -30,4 +30,8 @@ public class Payment {
     public void assignId(Long id) {
         this.id = id;
     }
+
+    public int getPrice() {
+        return order.getTotalPrice();
+    }
 }

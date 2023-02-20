@@ -1,4 +1,4 @@
-package org.practice.testLearn.infrastructure.repository;
+package org.practice.testLearn.infrastructure.repository.product;
 
 import java.util.HashMap;
 import java.util.Map;

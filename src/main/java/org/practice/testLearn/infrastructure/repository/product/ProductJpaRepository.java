@@ -1,4 +1,4 @@
-package org.practice.testLearn.infrastructure.repository;
+package org.practice.testLearn.infrastructure.repository.product;
 
 import org.practice.testLearn.domain.Product;
 import org.springframework.data.jpa.repository.JpaRepository;

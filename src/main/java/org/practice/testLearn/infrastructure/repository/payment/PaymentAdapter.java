@@ -1,10 +1,11 @@
-package org.practice.testLearn.infrastructure.repository;
+package org.practice.testLearn.infrastructure.repository.payment;
 
 import lombok.RequiredArgsConstructor;
 import org.practice.testLearn.domain.Order;
 import org.practice.testLearn.domain.Payment;
 import org.practice.testLearn.domain.PaymentGateway;
 import org.practice.testLearn.domain.PaymentPort;
+import org.practice.testLearn.infrastructure.repository.order.OrderJpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository

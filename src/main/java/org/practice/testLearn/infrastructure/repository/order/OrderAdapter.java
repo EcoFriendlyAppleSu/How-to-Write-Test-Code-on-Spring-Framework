@@ -1,9 +1,10 @@
-package org.practice.testLearn.infrastructure.repository;
+package org.practice.testLearn.infrastructure.repository.order;
 
 import lombok.RequiredArgsConstructor;
 import org.practice.testLearn.domain.Order;
 import org.practice.testLearn.domain.OrderPort;
 import org.practice.testLearn.domain.Product;
+import org.practice.testLearn.infrastructure.repository.product.ProductJpaRepository;
 import org.springframework.stereotype.Component;
 
 @Component

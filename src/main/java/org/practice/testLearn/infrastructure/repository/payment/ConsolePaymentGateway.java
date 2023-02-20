@@ -1,4 +1,4 @@
-package org.practice.testLearn.infrastructure.repository;
+package org.practice.testLearn.infrastructure.repository.payment;
 
 import org.practice.testLearn.domain.Payment;
 import org.practice.testLearn.domain.PaymentGateway;

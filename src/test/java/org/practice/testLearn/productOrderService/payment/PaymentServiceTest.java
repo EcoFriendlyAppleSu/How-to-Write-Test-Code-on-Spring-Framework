@@ -1,18 +1,10 @@
 package org.practice.testLearn.productOrderService.payment;
 
-import java.util.HashMap;
-import java.util.Map;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.practice.testLearn.application.OrderService;
 import org.practice.testLearn.application.PaymentService;
 import org.practice.testLearn.application.ProductService;
-import org.practice.testLearn.domain.PaymentGateway;
-import org.practice.testLearn.domain.PaymentPort;
-import org.practice.testLearn.infrastructure.repository.ConsolePaymentGateway;
-import org.practice.testLearn.infrastructure.repository.PaymentAdapter;
-import org.practice.testLearn.infrastructure.repository.PaymentInMemoryRepository;
 import org.practice.testLearn.presentation.request.PaymentRequest;
 import org.practice.testLearn.productOrderService.order.OrderSteps;
 import org.practice.testLearn.productOrderService.product.ProductSteps;
